@@ -19,7 +19,7 @@
     <div class="row">
         <div class="col-md-4 mt-5">
             <form method="post"
-                  th:action="@{/filmkatalogus/update}">
+                  th:action="@{/filmkata/update}">
                 <div class="form-group">
                     <label for="name">Film adatlap</label>
                 </div>
@@ -31,7 +31,7 @@
                            name="id"
                            readonly
                            class="form-control"
-                           th:value="${car.id}"/>
+                           th:value="${film.id}"/>
                 </div>
 
                 <div class="form-group">
@@ -69,7 +69,7 @@
                 <button class="btn btn-primary"
                         type="submit">Módosít
                 </button>
-                <a th:href="@{/filmkatalogus}"
+                <a th:href="@{/filmkata}"
                    class="btn btn-secondary"
                    type="submit">Vissza a listához</a>
             </form>
