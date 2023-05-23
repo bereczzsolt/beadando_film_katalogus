@@ -12,11 +12,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
-import java.util.Optional;
 
+/**
+ * Controller for film catalogus.
+ */
 
 @Controller
-@RequestMapping("/filmkatalogus")
+@RequestMapping("/templates")
 public class FilmCatalogusController {
 
     private final FilmekService filmekService;
@@ -30,20 +32,20 @@ public class FilmCatalogusController {
     public String getFilmekById(Model model, @PathVariable Long id) {
         Filmek filmek= filmekService.retrieveFilmekById(id);
         model.addAttribute("filmek", filmek);
-        return "filmkatalogus/edit";
+        return "templates/edit";
     }
 
     @GetMapping
     public String getAllFilmek(Model model) {
         List<Filmek> allFilmek = filmekService.retrieveAllFilmek();
         model.addAttribute("filmek", allFilmek);
-        return "filmkatalogus/list";
+        return "templates/list";
     }
 
 
     @GetMapping("/create")
     public String createFilmek() {
-        return "filmkatalogus/create";
+        return "templates/create";
     }
 
 
@@ -52,7 +54,7 @@ public class FilmCatalogusController {
     public String createFilmek(Model model, Filmek filmek) {
         Filmek newFilmek = filmekService.createFilmek(filmek);
         model.addAttribute("filmek", newFilmek);
-        return "filmkatalogus/edit";
+        return "templates/edit";
     }
 
 
@@ -60,7 +62,7 @@ public class FilmCatalogusController {
     public String updateFilmek(Model model, Filmek filmek) {
         Filmek updatedFilmek = filmekService.updateFilmek(filmek);
         model.addAttribute("filmek", updatedFilmek);
-        return "filmkatalogus/edit";
+        return "templates/edit";
     }
 
     @GetMapping("/{id}/delete")
@@ -68,7 +70,7 @@ public class FilmCatalogusController {
         filmekService.deleteFilmekById(id);
         List<Filmek> allFilmek = filmekService.retrieveAllFilmek();
         model.addAttribute("konyvek", allFilmek);
-        return "filmkatalogus/list";
+        return "templates/list";
     }
 
 
