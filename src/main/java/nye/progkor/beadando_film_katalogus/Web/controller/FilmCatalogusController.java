@@ -18,7 +18,7 @@ import java.util.List;
  */
 
 @Controller
-@RequestMapping("/templates")
+@RequestMapping("/filmkata")
 public class FilmCatalogusController {
 
     private final FilmekService filmekService;
@@ -32,20 +32,20 @@ public class FilmCatalogusController {
     public String getFilmekById(Model model, @PathVariable Long id) {
         Filmek filmek= filmekService.retrieveFilmekById(id);
         model.addAttribute("filmek", filmek);
-        return "templates/edit";
+        return "filmkata/edit";
     }
 
     @GetMapping
     public String getAllFilmek(Model model) {
         List<Filmek> allFilmek = filmekService.retrieveAllFilmek();
         model.addAttribute("filmek", allFilmek);
-        return "templates/list";
+        return "filmkata/list";
     }
 
 
     @GetMapping("/create")
     public String createFilmek() {
-        return "templates/create";
+        return "filmkata/create";
     }
 
 
@@ -54,7 +54,7 @@ public class FilmCatalogusController {
     public String createFilmek(Model model, Filmek filmek) {
         Filmek newFilmek = filmekService.createFilmek(filmek);
         model.addAttribute("filmek", newFilmek);
-        return "templates/edit";
+        return "filmkata/edit";
     }
 
 
@@ -62,7 +62,7 @@ public class FilmCatalogusController {
     public String updateFilmek(Model model, Filmek filmek) {
         Filmek updatedFilmek = filmekService.updateFilmek(filmek);
         model.addAttribute("filmek", updatedFilmek);
-        return "templates/edit";
+        return "filmkata/edit";
     }
 
     @GetMapping("/{id}/delete")
@@ -70,7 +70,7 @@ public class FilmCatalogusController {
         filmekService.deleteFilmekById(id);
         List<Filmek> allFilmek = filmekService.retrieveAllFilmek();
         model.addAttribute("konyvek", allFilmek);
-        return "templates/list";
+        return "filmkata/list";
     }
 
 
