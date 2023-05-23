@@ -36,16 +36,16 @@
         <tbody>
         <tr th:each="film: ${filmek}">
             <th scope="row"
-                th:text="${film.id}"></th>
-            <td th:text="${film.name}"></td>
-            <td th:text="${film.genre}"></td>
-            <td th:text="${film.director}"></td>
-            <td th:text="${film.releasedate}">
+                th:text="${filmek.id}"></th>
+            <td th:text="${filmek.name}"></td>
+            <td th:text="${filmek.genre}"></td>
+            <td th:text="${filmek.director}"></td>
+            <td th:text="${filmek.releasedate}">
             <td>
-                <a th:href="@{/filmkata/ + ${film.id}}"
+                <a th:href="@{/filmkata/ + ${filmek.id}}"
                    type="button"
                    class="btn btn-warning">Szerkesztés</a>
-                <a th:href="@{/filmkata/ + ${film.id} + '/delete'}"
+                <a th:href="@{/filmkata/ + ${filmek.id} + '/delete'}"
                    type="button"
                    class="btn btn-danger">Törlés</a>
             </td>
