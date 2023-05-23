@@ -1,4 +1,4 @@
-package nye.progkor.beadando_film_katalogus.Web;
+package nye.progkor.beadando_film_katalogus.Web.controller;
 
 import nye.progkor.beadando_film_katalogus.Data.model.Filmek;
 import nye.progkor.beadando_film_katalogus.Service.FilmekService;

@@ -1,18 +1,20 @@
 package nye.progkor.beadando_film_katalogus.Data.model;
 
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+
 import java.util.Objects;
 
 
 public class Filmek {
 
-    private Long id;
+    private Long Id;
     private String name;
     private Genre genre;
     private String director;
     private int releasedate;
 
-    public Filmek(Long id, String name, Genre genre, String director, int releasedate, int howlong) {
-        this.id = id;
+    public Filmek(Long id, String name, Genre genre, String director, int releasedate) {
+        Id = id;
         this.name = name;
         this.genre = genre;
         this.director = director;
@@ -20,11 +22,11 @@ public class Filmek {
     }
 
     public Long getId() {
-        return id;
+        return Id;
     }
 
     public void setId(Long id) {
-        this.id = id;
+        Id=id;
     }
 
     public String getName() {
@@ -68,7 +70,7 @@ public class Filmek {
         Filmek filmek = (Filmek) o;
 
         if (releasedate != filmek.releasedate) return false;
-        if (!Objects.equals(id, filmek.id)) return false;
+        if (!Objects.equals(Id, filmek.Id)) return false;
         if (!Objects.equals(director,filmek.director)) return false;
         if (genre != filmek.genre) return false;
         return Objects.equals(name,filmek.name);
@@ -76,7 +78,7 @@ public class Filmek {
 
     @Override
     public int hashCode() {
-        int result = id!= null ? id.hashCode() : 0;
+        int result = Id!= null ? Id.hashCode() : 0;
         result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + (genre != null ? genre.hashCode() : 0);
         result = 31 * result + (director != null ? director.hashCode() : 0);
@@ -87,7 +89,7 @@ public class Filmek {
     @Override
     public String toString() {
         return "Filmek{" +
-                "id=" + id +
+                "Id=" + Id +
                 ", name='" + name + '\'' +
                 ", genre=" + genre +
                 ", director='" + director + '\'' +
